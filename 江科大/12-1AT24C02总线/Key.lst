@@ -1,0 +1,37 @@
+C51 COMPILER V9.00   KEY                                                                   08/21/2023 16:26:34 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Key.obj
+COMPILER INVOKED BY: F:\单片机\C51\BIN\C51.EXE ..\7-1按键控制led流水灯\Key.c BROWSE DEBUG OBJECTEXTEND PRINT(.\Key.lst) 
+                    -OBJECT(.\Key.obj)
+
+line level    source
+
+   1          #include<regx52.h>
+   2          #include"Delay.h"
+   3            //获取独立按键键码
+   4          unsigned char Key()
+   5          {
+   6   1        unsigned char KeyNumber=0;
+   7   1        
+   8   1        if(P3_1==0){Delay(20);while(P3_1==0);Delay(20);KeyNumber=1;}
+   9   1          if(P3_0==0){Delay(20);while(P3_0==0);Delay(20);KeyNumber=2;}
+  10   1                if(P3_2==0){Delay(20);while(P3_2==0);Delay(20);KeyNumber=3;}
+  11   1                  if(P3_3==0){Delay(20);while(P3_3==0);Delay(20);KeyNumber=4;}
+  12   1        return KeyNumber;
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     97    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

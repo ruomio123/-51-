@@ -1,0 +1,20 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\单片机\江科大\8-2电脑向串口发送\project.uvproj
+Project File Date:  08/01/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Delay.c...
+compiling main.c...
+compiling UART.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?DELAY
+Program Size: data=10.0 xdata=0 code=150
+creating hex file from "project"...
+"project" - 0 Error(s), 1 Warning(s).

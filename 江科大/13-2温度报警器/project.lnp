@@ -1,0 +1,13 @@
+"STARTUP.obj",
+"main.obj",
+"AT24C02.obj",
+"Delay.obj",
+"DS18B20.obj",
+"I2C.obj",
+"Key.obj",
+"lcd1602.obj",
+"Timer0.obj",
+"public.obj",
+"OneWire.obj" 
+TO "project" 
+RAMSIZE(256) 

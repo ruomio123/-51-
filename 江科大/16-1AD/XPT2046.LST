@@ -1,0 +1,57 @@
+C51 COMPILER V9.00   XPT2046                                                               08/27/2023 18:10:14 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE XPT2046
+OBJECT MODULE PLACED IN XPT2046.OBJ
+COMPILER INVOKED BY: F:\µ¥Æ¬»ú\C51\BIN\C51.EXE XPT2046.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          sbit XPT2046_CS=P3^5;
+   3          sbit XPT2046_DCLK=P3^6;
+   4          sbit XPT2046_DIN=P3^4;
+   5          sbit XPT2046_DOUT=P3^7;
+   6          
+   7          unsigned int XPT2046_ReadAD(unsigned char Command)
+   8          {
+   9   1        unsigned char i;
+  10   1        unsigned int ADVAlue=0;
+  11   1        XPT2046_DCLK=0;
+  12   1        XPT2046_CS=0;
+  13   1        for(i=0;i<8;i++)
+  14   1        {
+  15   2          XPT2046_DIN=Command&(0x80>>i);
+  16   2              XPT2046_DCLK=1;
+  17   2              XPT2046_DCLK=0;
+  18   2        }
+  19   1        for(i=0;i<16;i++)
+  20   1        {
+  21   2          XPT2046_DCLK=1;
+  22   2              XPT2046_DCLK=0;
+  23   2              if(XPT2046_DOUT){ADVAlue|=(0x8000>>i);}
+  24   2        }
+  25   1        XPT2046_CS=1;
+  26   1        if(Command&0x08)
+  27   1        {
+  28   2          return ADVAlue>>8;
+  29   2        }
+  30   1        else
+  31   1        {
+  32   2          return ADVAlue>>4;
+  33   2        }
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    110    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

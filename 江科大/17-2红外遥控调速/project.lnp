@@ -1,0 +1,12 @@
+"STARTUP.obj",
+"Delay.obj",
+"Key.obj",
+"main.obj",
+"Nixie.obj",
+"Timer1.obj",
+"Int0.obj",
+"IR.obj",
+"Timer0.obj",
+"Motor.obj" 
+TO "project" 
+RAMSIZE(256) 

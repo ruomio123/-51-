@@ -1,0 +1,9 @@
+"STARTUP.obj",
+"main.obj",
+"Delay.obj",
+"lcd1602.obj",
+"public.obj",
+"DS18B20.obj",
+"OneWire.obj" 
+TO "project" 
+RAMSIZE(256) 

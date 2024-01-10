@@ -1,0 +1,219 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/09/2023  10:59:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\µ¥Æ¬»ú\C51\BIN\BL51.EXE STARTUP.obj, main.obj, MartixLED.obj, Delay.obj TO project RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  main.obj (MAIN)
+  MartixLED.obj (MARTIXLED)
+  Delay.obj (DELAY)
+
+
+LINK MAP OF MODULE:  project (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0040H     UNIT         ?PR?MAIN?MAIN
+            CODE    0840H     002DH     UNIT         ?PR?__74HC595_WRITEBYTE?MARTIXLED
+            CODE    086DH     0022H     UNIT         ?PR?_MATRIXLED_SHOWCOLUMN?MARTIXLED
+            CODE    088FH     0018H     UNIT         ?CO?MAIN
+            CODE    08A7H     0015H     UNIT         ?PR?_DELAY?DELAY
+            CODE    08BCH     000CH     UNIT         ?C_C51STARTUP
+            CODE    08C8H     0005H     UNIT         ?PR?MATRIXLED_INIT?MARTIXLED
+
+
+
+OVERLAY MAP OF MODULE:   project (?C_STARTUP)
+
+
+SEGMENT                                       DATA_GROUP 
+  +--> CALLED SEGMENT                       START    LENGTH
+-----------------------------------------------------------
+?C_C51STARTUP                               -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                               0008H    0003H
+  +--> ?PR?MATRIXLED_INIT?MARTIXLED
+  +--> ?CO?MAIN
+  +--> ?PR?_MATRIXLED_SHOWCOLUMN?MARTIXLED
+
+?PR?_MATRIXLED_SHOWCOLUMN?MARTIXLED         -----    -----
+  +--> ?PR?__74HC595_WRITEBYTE?MARTIXLED
+  +--> ?PR?_DELAY?DELAY
+
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/09/2023  10:59:25  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  project (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08BCH         SEGMENT       ?C_C51STARTUP
+  I:000BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08BFH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08BCH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08BCH         LINE#         133
+  C:08BEH         LINE#         134
+  C:08BFH         LINE#         135
+  C:08C0H         LINE#         136
+  C:08C2H         LINE#         185
+  C:08C5H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:088FH         PUBLIC        Animation
+  C:0800H         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  D:0009H         SYMBOL        Offset
+  D:000AH         SYMBOL        Count
+  -------         ENDDO         
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0800H         LINE#         13
+  C:0805H         LINE#         14
+  C:0808H         LINE#         15
+  C:0808H         LINE#         16
+  C:0808H         LINE#         17
+  C:080BH         LINE#         18
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/09/2023  10:59:25  PAGE 3
+
+
+  C:080BH         LINE#         19
+  C:081BH         LINE#         20
+  C:0824H         LINE#         21
+  C:0826H         LINE#         22
+  C:082DH         LINE#         23
+  C:082DH         LINE#         24
+  C:0830H         LINE#         25
+  C:0836H         LINE#         26
+  C:083BH         LINE#         27
+  C:083BH         LINE#         28
+  C:083EH         LINE#         29
+  C:083EH         LINE#         30
+  C:083EH         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        MARTIXLED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0840H         PUBLIC        __74HC595_WriteByte
+  D:00B0H         PUBLIC        P3
+  C:086DH         PUBLIC        _MatrixLED_ShowColumn
+  C:08C8H         PUBLIC        MatrixLED_Init
+  B:00B0H.5       PUBLIC        RCK
+  B:00B0H.6       PUBLIC        SCK
+  B:00B0H.4       PUBLIC        SER
+  -------         PROC          __74HC595_WRITEBYTE
+  D:0005H         SYMBOL        Byte
+  -------         DO            
+  D:0003H         SYMBOL        i
+  -------         ENDDO         
+  C:0840H         LINE#         13
+  C:0842H         LINE#         14
+  C:0842H         LINE#         17
+  C:0844H         LINE#         18
+  C:0844H         LINE#         19
+  C:0860H         LINE#         21
+  C:0862H         LINE#         22
+  C:0864H         LINE#         23
+  C:0868H         LINE#         24
+  C:086AH         LINE#         25
+  C:086CH         LINE#         26
+  -------         ENDPROC       __74HC595_WRITEBYTE
+  -------         PROC          MATRIXLED_INIT
+  C:08C8H         LINE#         32
+  C:08C8H         LINE#         33
+  C:08C8H         LINE#         34
+  C:08CAH         LINE#         35
+  C:08CCH         LINE#         36
+  -------         ENDPROC       MATRIXLED_INIT
+  -------         PROC          _MATRIXLED_SHOWCOLUMN
+  D:0002H         SYMBOL        Column
+  D:0004H         SYMBOL        Data
+  C:086DH         LINE#         44
+  C:086FH         LINE#         45
+  C:086FH         LINE#         46
+  C:0874H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/09/2023  10:59:25  PAGE 4
+
+
+  C:0884H         LINE#         48
+  C:088BH         LINE#         49
+  C:088EH         LINE#         50
+  -------         ENDPROC       _MATRIXLED_SHOWCOLUMN
+  -------         ENDMOD        MARTIXLED
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08A7H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        xms
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:08A7H         LINE#         2
+  C:08A7H         LINE#         3
+  C:08A7H         LINE#         5
+  C:08B1H         LINE#         6
+  C:08B1H         LINE#         7
+  C:08B3H         LINE#         8
+  C:08B5H         LINE#         10
+  C:08B5H         LINE#         11
+  C:08B7H         LINE#         12
+  C:08B9H         LINE#         13
+  C:08BBH         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D0H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=208
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

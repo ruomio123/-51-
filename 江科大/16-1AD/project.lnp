@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"main.obj",
+"Delay.obj",
+"lcd1602.obj",
+"public.obj",
+"XPT2046.obj" 
+TO "project" 
+RAMSIZE(256) 

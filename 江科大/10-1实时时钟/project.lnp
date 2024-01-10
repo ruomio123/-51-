@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"main.obj",
+"lcd1602.obj",
+"DS1302.obj",
+"Delay.obj",
+"public.obj" 
+TO "project" 
+RAMSIZE(256) 

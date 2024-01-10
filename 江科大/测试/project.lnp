@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"main.obj",
+"public.obj",
+"lcd1602.obj" 
+TO "project" 
+RAMSIZE(256) 

@@ -1,0 +1,10 @@
+"STARTUP.obj",
+"main.obj",
+"Delay.obj",
+"Key.obj",
+"Nixie.obj",
+"Timer0.obj",
+"I2C.obj",
+"AT24C02.obj" 
+TO "project" 
+RAMSIZE(256) 

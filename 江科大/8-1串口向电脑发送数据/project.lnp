@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"main.obj",
+"Delay.obj",
+"UART.obj" 
+TO "project" 
+RAMSIZE(256) 

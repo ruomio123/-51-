@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"Delay.obj",
+"lcd1602.obj",
+"main.obj",
+"Timer0.obj",
+"public.obj" 
+TO "project" 
+RAMSIZE(256) 

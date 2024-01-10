@@ -1,0 +1,11 @@
+"STARTUP.obj",
+".\Delay.obj",
+".\Key.obj",
+".\lcd1602.obj",
+"main.obj",
+".\public.obj",
+"AT24C02.obj",
+"I2C.obj" 
+TO "project" 
+RAMSIZE(256) 
+DISABLEWARNING (16) 

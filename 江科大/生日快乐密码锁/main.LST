@@ -1,0 +1,82 @@
+C51 COMPILER V9.00   MAIN                                                                  08/11/2023 00:25:34 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: F:\单片机\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<regx52.h>
+   2          #include"lcd1602.h"
+   3          #include"public.h"
+   4          #include"MatrixKey.h"
+*** WARNING C315 IN LINE 1 OF MatrixKey.h: unknown #directive 'ifndef_MATRIXKEY_H_'
+*** WARNING C315 IN LINE 2 OF MatrixKey.h: unknown #directive 'define_MATRIXKEY_H_'
+*** WARNING C312 IN LINE 7 OF MatrixKey.h: misplaced endif control
+   5          unsigned char KeyNum;
+   6          int Password,count;
+   7          void main()
+   8          {
+   9   1          LCD_Init();
+  10   1          LCD_ShowString(1,1,"PassWord");      
+  11   1              while(1)
+  12   1              {
+  13   2                KeyNum=MatrixKey();
+  14   2            if(KeyNum)   //判断按键按下
+  15   2                {
+  16   3                 if(KeyNum<=10)//如果s1-s10按下       s1-s10为密码区,10作为0
+  17   3                 {
+  18   4                   if(count<7)
+  19   4                       {
+  20   5                       Password*=10;  //密码左移一位
+  21   5                   Password+=KeyNum%10;//获取一位密码
+  22   5                       count++; //输入次数加一
+  23   5                       }
+  24   4                  LCD_ShowNum(2,1,Password,3);//更新显示//第二行第一列开始显示，长度为8 
+  25   4                 }
+  26   3      
+  27   3                 if(KeyNum==11)  //s11按下，确认密码
+  28   3                 {
+  29   4                       if(Password==810)
+  30   4                       {
+  31   5                          LCD_ShowString(1,1,"coco    "); 
+  32   5                          LCD_ShowString(2,1,"happy birthday");
+  33   5                              Password=0;
+  34   5                          count=0;
+  35   5                       }
+  36   4                       else 
+  37   4                       {
+  38   5                          LCD_ShowString(2,1,"error");
+  39   5                              Password=0;
+  40   5                              count=0;                        //清零
+  41   5                              LCD_ShowNum(2,1,Password,8);//更新显示//第二行第一列开始显示，长度为4
+  42   5                       }
+  43   4                 }
+  44   3              if(KeyNum==12) //s12按下，取消
+  45   3                      {
+  46   4                              Password=0;
+  47   4                              count=0;                        //清零
+  48   4                              LCD_ShowNum(2,1,Password,8);//更新显示//第二行第一列开始显示，长度为4
+  49   4                      
+  50   4                      }  
+  51   3                }
+  52   2      
+C51 COMPILER V9.00   MAIN                                                                  08/11/2023 00:25:34 PAGE 2   
+
+  53   2              }
+  54   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    220    ----
+   CONSTANT SIZE    =     39    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      5    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)
